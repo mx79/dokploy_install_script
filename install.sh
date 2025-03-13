@@ -108,7 +108,7 @@ install_dokploy() {
     docker pull postgres:16
     docker pull redis:7
     docker pull traefik:v3.1.2
-    docker pull dokploy/dokploy:latest
+    docker pull mx79/dokploy:latest
 
     # Installation
     docker service create \
