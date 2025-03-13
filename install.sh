@@ -108,7 +108,7 @@ install_dokploy() {
     docker pull postgres:16
     docker pull redis:7
     docker pull traefik:v3.1.2
-    docker pull mx79/dokploy:latest
+    docker pull mx79/dokploy:canary
 
     # Installation
     docker service create \
@@ -123,7 +123,7 @@ install_dokploy() {
       --update-order stop-first \
       --constraint 'node.role == manager' \
       -e ADVERTISE_ADDR=$advertise_addr \
-      mx79/dokploy:latest
+      mx79/dokploy:canary
 
     GREEN="\033[0;32m"
     YELLOW="\033[1;33m"
@@ -151,13 +151,13 @@ install_dokploy() {
 update_dokploy() {
     echo "Updating Dokploy..."
     
-    # Pull the latest image
-    docker pull mx79/dokploy:latest
+    # Pull the canary image
+    docker pull mx79/dokploy:canary
 
     # Update the service
-    docker service update --image mx79/dokploy:latest dokploy
+    docker service update --image mx79/dokploy:canary dokploy
 
-    echo "Dokploy has been updated to the latest version."
+    echo "Dokploy has been updated to the canary version."
 }
 
 # Main script execution
